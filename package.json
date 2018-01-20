@@ -1,0 +1,23 @@
+{
+  "name": "wasm-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Shane Logsdon <shane@shanelogsdon.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build --public-url / web/index.html",
+    "cargo:build": "cargo build --target wasm32-unknown-unknown --release",
+    "cargo:gc":
+      "wasm-gc target/wasm32-unknown-unknown/release/wasm_demo.wasm target/wasm32-unknown-unknown/release/wasm_demo.min.wasm",
+    "clean": "rm -rf .cache dist && cargo clean",
+    "develop":
+      "parcel web/index.html & cargo watch -x check -w src -s 'yarn prebuild'",
+    "prebuild": "yarn cargo:build && yarn cargo:gc",
+    "predevelop": "yarn prebuild",
+    "watch":
+      "bsb -make-world -w & parcel watch -d static --public-url / web/index.html"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.4.1"
+  }
+}
