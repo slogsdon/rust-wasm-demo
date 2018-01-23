@@ -1,9 +1,8 @@
-import addTwo from './add-two';
+import {add_two} from '../src/lib.rs';
 
-addTwo(2).then(result => {
-  const el = document.createTextNode(result);
-  const root = document.getElementById('root');
+const result = add_two(2);
+const el = document.createTextNode(result);
+const root = document.getElementById('root');
 
-  root.childNodes.forEach(e => e.remove());
-  root.appendChild(el);
-});
+root.childNodes.forEach(e => e.remove());
+root.appendChild(el);

@@ -1,5 +1,5 @@
 [package]
-name = "wasm-demo"
+name = "wasm_demo"
 version = "0.1.0"
 authors = ["Shane Logsdon <shane@shanelogsdon.com>"]
 
